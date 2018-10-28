@@ -1,0 +1,14 @@
+---
+pkg_manager:  homebrew
+#
+#users:
+#  user1: kenny
+#  user2: stan
+#  user3: cartman
+#  user4: kyle
+
+#users:
+#  - kenny
+#  - stan
+#  - cartman
+#  - kyle

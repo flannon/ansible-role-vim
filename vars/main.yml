@@ -1,0 +1,126 @@
+---
+users:
+  - None
+
+users2:
+  - cartman
+  - kyle
+  - stan
+
+properties:
+  - fat
+  - jewish
+  - middle_class
+
+role_state:
+  file: file
+  directory: directory
+  package: present
+  state: present
+
+vimrc_file: .vimrc_ansible
+vim_dir: .vim_ansible
+vim_plugin_dir: "{{ vim_dir }}/bundle"
+
+vim_plugin_vundle: https://github.com/VundleVim/Vundle.vim.git
+vim_plugin_vundle_revision: v0.10.2
+vim_plugin_vundle_dir: "{{ vim_plugin_dir }}/Vundle.vim"
+
+vim_plugin_L9: https://github.com/vim-scripts/L9
+vim_plugin_L9_revision: 1.1
+vim_plugin_L9_dir: "{{ vim_plugin_dir }}/L9"
+
+vim_plugin_ycm: https://github.com/Valloric/YouCompleteMe
+vim_plugin_ycm_revision: master
+vim_plugin_ycm_dir: "{{ vim_plugin_dir }}/ycm"
+
+vim_plugin_indentLine: https://github.com/Yggdroot/indentLine
+vim_plugin_indentLine_revision: v2.0
+vim_plugin_indentLine_dir: "{{ vim_plugin_dir }}/indentLine"
+
+vim_plugin_jedi: https://github.com/davidhalter/jedi-vim
+vim_plugin_jedi_revision: 0.9.0
+vim_plugin_jedi_dir: "{{ vim_plugin_dir }}/jedi-vim"
+
+vim_plugin_ansible: https://github.com/pearofducks/ansible-vim
+vim_plugin_ansible_revision: 2.0
+vim_plugin_ansible_dir: "{{ vim_plugin_dir }}/ansible-vim"
+  
+vim_plugin_colorschemes: https://github.com/flazz/vim-colorschemes
+vim_plugin_colorschemes_revision: master
+vim_plugin_colorschemes_dir: "{{ vim_plugin_dir }}/vim-colorschemes"
+
+vim_plugin_fugitive: https://github.com/tpope/vim-fugitive
+vim_plugin_fugitive_revision: v2.4
+vim_plugin_fugitive_dir: "{{ vim_plugin_dir }}/vim-fugitive" 
+  
+vim_plugin_go: https://github.com/fatih/vim-go
+vim_plugin_go_revision: v1.18
+vim_plugin_go_dir: "{{ vim_plugin_dir }}/vim-go"
+
+vim_plugin_packer: https://github.com/hashivim/vim-packer
+vim_plugin_packer_revision: master
+vim_plugin_packer_dir: "{{ vim_plugin_dir }}/vim-packer"
+
+vim_plugin_puppet: https://github.com/rodjek/vim-puppet
+vim_plugin_puppet_revision: master
+vim_plugin_puppet_dir: "{{ vim_plugin_dir }}/vim-puppet"
+
+vim_plugin_surround: https://github.com/tpope/vim-surround
+vim_plugin_surround_revision: v2.1
+vim_plugin_surround_dir: "{{ vim_plugin_dir }}/vim-surround"
+
+vim_plugin_terraform: https://github.com/hashivim/vim-terraform
+vim_plugin_terraform_revision: master
+vim_plugin_terraform_dir: "{{ vim_plugin_dir }}/vim-terraform"
+
+vim_plugin_vagrant: https://github.com/hashivim/vim-vagrant
+vim_plugin_vagrant_revision: master
+vim_plugin_vagrant_dir: "{{ vim_plugin_dir }}/vim-vagrant"
+
+# vundle dict not used
+vim_plugins:
+  vundle: 
+    repo: https://github.com/VundleVim/Vundle.vim
+    revision: v0.10.2
+  L9: 
+    repo: https://github.com/vim-scripts/L9
+    revision: 1.1
+  ycm: 
+    repo: https://github.com/Valloric/YouCompleteMe
+    revision: master
+  indentLine: 
+    repo: https://github.com/Yggdroot/indentLine
+    revision: v2.0
+  jedi-vim: 
+    repo: https://github.com/davidhalter/jedi-vim
+    revision: 0.9.0
+  vim-ansible: 
+    repo: https://github.com/pearofducks/ansible-vim
+    revision: 2.0
+  vim-colorschemes: 
+    repo: https://github.com/flazz/vim-colorschemes
+    revision: master
+  vim-fugitive: 
+    repo: https://github.com/tpope/vim-fugitive
+    revision: v2.4
+  vim-go: 
+    repo: https://github.com/fatih/vim-go
+    revision: v1.18
+  vim-packer: 
+    repo: https://github.com/hashivim/vim-packer
+    revision: master
+  vim-puppet: 
+    repo: https://github.com/rodjek/vim-puppet
+    revision: master
+  vim-surround: 
+    repo: https://github.com/tpope/vim-surround
+    revision: v2.1
+  vim-teraform: 
+    repo: https://github.com/hashivim/vim-terraform
+    revision: master
+  vim-vagrant: 
+    repo: https://github.com/hashivim/vim-vagrant
+    revision: master
+
+
