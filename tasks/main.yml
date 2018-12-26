@@ -1,5 +1,5 @@
 ---
-- name: run OS specific tasks
+- name: virtual run OS specific tasks 
   include_tasks: "{{ task_item }}"
   with_first_found:
     - "{{ ansible_os_family }}.yml"
@@ -20,10 +20,9 @@
     src: templates/vimrc.j2
     dest: ~{{ item }}/{{ vimrc_file }}
     owner: "{{ item }}"
-    #group: "{{ item }}"
+    group: "{{ item }}"
     mode: 0644
   loop: "{{ users|default([]) }}"
-    #loop: "{{ users }}"
   when: item != None  # This doesn't seem to work. It still processes when
                       # item == None
 
@@ -38,7 +37,7 @@
   file:
     path: ~{{ item }}/{{ vim_plugin_dir }}
     state: "{{ role_state['directory'] }}"
-    owner: kenny
+    owner: "{{ item }}"
     mode: 0755
   loop: "{{ users|default([]) }}"
   when: item != None 

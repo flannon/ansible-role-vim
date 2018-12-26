@@ -5,7 +5,7 @@
     - "{{ ansible_os_family }}.yml"
   tags: vars
 
-- homebrew:
+- yum:
     name: vim
     state: "{{ role_state['package'] }}"
 

@@ -1,11 +1,11 @@
 ---
-users:
-  - None
-
-users2:
-  - cartman
-  - kyle
-  - stan
+#users:
+#  - None
+#
+#users2:
+#  - cartman
+#  - kyle
+#  - stan
 
 properties:
   - fat
@@ -18,8 +18,8 @@ role_state:
   package: present
   state: present
 
-vimrc_file: .vimrc_ansible
-vim_dir: .vim_ansible
+vimrc_file: .vimrc
+vim_dir: .vim
 vim_plugin_dir: "{{ vim_dir }}/bundle"
 
 vim_plugin_vundle: https://github.com/VundleVim/Vundle.vim.git
@@ -122,5 +122,3 @@ vim_plugins:
   vim-vagrant: 
     repo: https://github.com/hashivim/vim-vagrant
     revision: master
-
-
