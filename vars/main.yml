@@ -1,17 +1,4 @@
 ---
-#users:
-#  - None
-#
-#users2:
-#  - cartman
-#  - kyle
-#  - stan
-
-properties:
-  - fat
-  - jewish
-  - middle_class
-
 role_state:
   file: file
   directory: directory
