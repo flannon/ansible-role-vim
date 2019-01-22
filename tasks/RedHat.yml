@@ -6,6 +6,6 @@
   tags: vars
 
 - yum:
-    name: vim
+    name: vim-enhanced
     state: "{{ role_state['package'] }}"
 
