@@ -2,6 +2,7 @@
 - name: virtual run OS specific tasks 
   include_tasks: "{{ task_item }}"
   with_first_found:
+    - "{{ ansible_distribution }}.yml"
     - "{{ ansible_os_family }}.yml"
   tags: tasks
   loop_control:
