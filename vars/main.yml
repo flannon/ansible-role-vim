@@ -1,12 +1,4 @@
 ---
-#users:
-#  - None
-#
-#users2:
-#  - cartman
-#  - kyle
-#  - stan
-
 properties:
   - fat
   - jewish
@@ -45,15 +37,15 @@ vim_plugin_jedi_dir: "{{ vim_plugin_dir }}/jedi-vim"
 vim_plugin_ansible: https://github.com/pearofducks/ansible-vim
 vim_plugin_ansible_revision: 2.0
 vim_plugin_ansible_dir: "{{ vim_plugin_dir }}/ansible-vim"
-  
+
 vim_plugin_colorschemes: https://github.com/flazz/vim-colorschemes
 vim_plugin_colorschemes_revision: master
 vim_plugin_colorschemes_dir: "{{ vim_plugin_dir }}/vim-colorschemes"
 
 vim_plugin_fugitive: https://github.com/tpope/vim-fugitive
 vim_plugin_fugitive_revision: v2.4
-vim_plugin_fugitive_dir: "{{ vim_plugin_dir }}/vim-fugitive" 
-  
+vim_plugin_fugitive_dir: "{{ vim_plugin_dir }}/vim-fugitive"
+
 vim_plugin_go: https://github.com/fatih/vim-go
 vim_plugin_go_revision: v1.18
 vim_plugin_go_dir: "{{ vim_plugin_dir }}/vim-go"
@@ -80,45 +72,45 @@ vim_plugin_vagrant_dir: "{{ vim_plugin_dir }}/vim-vagrant"
 
 # vundle dict not used
 vim_plugins:
-  vundle: 
+  vundle:
     repo: https://github.com/VundleVim/Vundle.vim
     revision: v0.10.2
-  L9: 
+  L9:
     repo: https://github.com/vim-scripts/L9
     revision: 1.1
-  ycm: 
+  ycm:
     repo: https://github.com/Valloric/YouCompleteMe
     revision: master
-  indentLine: 
+  indentLine:
     repo: https://github.com/Yggdroot/indentLine
     revision: v2.0
-  jedi-vim: 
+  jedi-vim:
     repo: https://github.com/davidhalter/jedi-vim
     revision: 0.9.0
-  vim-ansible: 
+  vim-ansible:
     repo: https://github.com/pearofducks/ansible-vim
     revision: 2.0
-  vim-colorschemes: 
+  vim-colorschemes:
     repo: https://github.com/flazz/vim-colorschemes
     revision: master
-  vim-fugitive: 
+  vim-fugitive:
     repo: https://github.com/tpope/vim-fugitive
     revision: v2.4
-  vim-go: 
+  vim-go:
     repo: https://github.com/fatih/vim-go
     revision: v1.18
-  vim-packer: 
+  vim-packer:
     repo: https://github.com/hashivim/vim-packer
     revision: master
-  vim-puppet: 
+  vim-puppet:
     repo: https://github.com/rodjek/vim-puppet
     revision: master
-  vim-surround: 
+  vim-surround:
     repo: https://github.com/tpope/vim-surround
     revision: v2.1
-  vim-teraform: 
+  vim-teraform:
     repo: https://github.com/hashivim/vim-terraform
     revision: master
-  vim-vagrant: 
+  vim-vagrant:
     repo: https://github.com/hashivim/vim-vagrant
     revision: master

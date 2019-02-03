@@ -1,5 +1,5 @@
 ---
-pkg_manager:  homebrew
+pkg_manager: homebrew
 
 users:
-  - "{{ user }}
+  - "{{ user }}"
