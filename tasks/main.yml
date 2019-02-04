@@ -1,5 +1,5 @@
 ---
-- name: virtual run OS specific tasks 
+- name: virtual run OS specific tasks
   include_tasks: "{{ task_item }}"
   with_first_found:
     - "{{ ansible_os_family }}.yml"
@@ -16,15 +16,14 @@
   when: vim_user_item != None
 
 - name: ensure .vimrc
-  template: 
+  template:
     src: templates/vimrc.j2
     dest: ~{{ item }}/{{ vimrc_file }}
     owner: "{{ item }}"
     group: "{{ item }}"
     mode: 0644
   loop: "{{ users|default([]) }}"
-  when: item != None  # This doesn't seem to work. It still processes when
-                      # item == None
+  when: item != None  # This doesn't seem to work. It still processes when item == None
 
 - name: ensure .vimrc state
   file:
@@ -40,195 +39,194 @@
     owner: "{{ item }}"
     mode: 0755
   loop: "{{ users|default([]) }}"
-  when: item != None 
+  when: item != None
 
 ##
 # Vim plugins
 ##
 
 - name: ensure vim plugin Vundle
-  git: 
+  git:
     repo: "{{ vim_plugin_vundle }}"
     dest: ~{{ item }}/{{ vim_plugin_vundle_dir }}/
     version: "{{ vim_plugin_vundle_revision }}"
   loop: "{{ users|default([]) }}"
-  when: item != None 
- 
+  when: item != None
+
 - name: ensure vim plugin L9
-  git: 
+  git:
     repo: "{{ vim_plugin_L9 }}"
     dest: ~{{ item }}/{{ vim_plugin_L9_dir }}/
     version: "{{ vim_plugin_L9_revision }}"
   loop: "{{ users|default([]) }}"
-  when: item != None 
- 
+  when: item != None
+
 - name: ensure vim plugin YCM
-  git: 
+  git:
     repo: "{{ vim_plugin_ycm }}"
     dest: ~{{ item }}/{{ vim_plugin_ycm_dir }}/
     version: "{{ vim_plugin_ycm_revision }}"
   loop: "{{ users|default([]) }}"
-  when: item != None 
+  when: item != None
 
 - name: ensure vim plugin indentLine
-  git: 
+  git:
     repo: "{{ vim_plugin_indentLine }}"
     dest: ~{{ item }}/{{ vim_plugin_indentLine_dir }}/
     version: "{{ vim_plugin_indentLine_revision }}"
   loop: "{{ users|default([]) }}"
-  when: item != None 
+  when: item != None
 
 - name: ensure vim plugin jedi-vim
-  git: 
+  git:
     repo: "{{ vim_plugin_jedi }}"
     dest: ~{{ item }}/{{ vim_plugin_jedi_dir }}/
     version: "{{ vim_plugin_jedi_revision }}"
   loop: "{{ users|default([]) }}"
-  when: item != None 
+  when: item != None
 
 - name: ensure vim plugin ansible-vim
-  git: 
+  git:
     repo: "{{ vim_plugin_ansible }}"
     dest: ~{{ item }}/{{ vim_plugin_ansible_dir }}/
     version: "{{ vim_plugin_ansible_revision }}"
   loop: "{{ users|default([]) }}"
-  when: item != None 
+  when: item != None
 
 - name: ensure vim plugin vim-colorschemes
-  git: 
+  git:
     repo: "{{ vim_plugin_colorschemes }}"
     dest: ~{{ item }}/{{ vim_plugin_colorschemes_dir }}/
     version: "{{ vim_plugin_colorschemes_revision }}"
-    update: no
+    update: false
   loop: "{{ users|default([]) }}"
-  when: item != None 
+  when: item != None
 
 - name: ensure vim plugin vim-fugitive
-  git: 
+  git:
     repo: "{{ vim_plugin_fugitive }}"
     dest: ~{{ item }}/{{ vim_plugin_fugitive_dir }}/
     version: "{{ vim_plugin_fugitive_revision }}"
   loop: "{{ users|default([]) }}"
-  when: item != None 
-  
+  when: item != None
+
 - name: ensure vim plugin vim-go
-  git: 
+  git:
     repo: "{{ vim_plugin_go }}"
     dest: ~{{ item }}/{{ vim_plugin_go_dir }}/
     version: "{{ vim_plugin_go_revision }}"
   loop: "{{ users|default([]) }}"
-  when: item != None 
+  when: item != None
 ##
 - name: ensure vim plugin vim-packer
-  git: 
+  git:
     repo: "{{ vim_plugin_packer }}"
     dest: ~{{ item }}/{{ vim_plugin_packer_dir }}/
     version: "{{ vim_plugin_packer_revision }}"
   loop: "{{ users|default([]) }}"
-  when: item != None 
+  when: item != None
 
 - name: ensure vim plugin vim-puppet
-  git: 
+  git:
     repo: "{{ vim_plugin_puppet }}"
     dest: ~{{ item }}/{{ vim_plugin_puppet_dir }}/
     version: "{{ vim_plugin_puppet_revision }}"
   loop: "{{ users|default([]) }}"
-  when: item != None 
+  when: item != None
 
 - name: ensure vim plugin vim-surround
-  git: 
+  git:
     repo: "{{ vim_plugin_surround }}"
     dest: ~{{ item }}/{{ vim_plugin_surround_dir }}/
     version: "{{ vim_plugin_surround_revision }}"
   loop: "{{ users|default([]) }}"
-  when: item != None 
+  when: item != None
 
 - name: ensure vim plugin vim-surround
-  git: 
+  git:
     repo: "{{ vim_plugin_surround }}"
     dest: ~{{ item }}/{{ vim_plugin_surround_dir }}/
     version: "{{ vim_plugin_surround_revision }}"
   loop: "{{ users|default([]) }}"
-  when: item != None 
+  when: item != None
 
 - name: ensure vim plugin vim-terraform
-  git: 
+  git:
     repo: "{{ vim_plugin_terraform }}"
     dest: ~{{ item }}/{{ vim_plugin_terraform_dir }}/
     version: "{{ vim_plugin_terraform_revision }}"
   loop: "{{ users|default([]) }}"
-  when: item != None 
+  when: item != None
 
 - name: ensure vim plugin vim-vagrant
-  git: 
+  git:
     repo: "{{ vim_plugin_vagrant }}"
     dest: ~{{ item }}/{{ vim_plugin_vagrant_dir }}/
     version: "{{ vim_plugin_vagrant_revision }}"
   loop: "{{ users|default([]) }}"
-  when: item != None 
+  when: item != None
 
   #  #- name: ensure vim_plugins
-  ##git: 
+  ## git:
   ##  repo: "{{ item.value.repo }}"
   ##  dest: "~kenny/.vim_ansible/bundle/{{ item.key }}/"
   ##  version: "{{ item.value.revision }}"
-  ###loop: "{{ users|default([]) }}"
-  ###when: item != None 
-  ##with_dict: "{{ vim_plugins }}"
-  
+  ### loop: "{{ users|default([]) }}"
+  ### when: item != None
+  ## with_dict: "{{ vim_plugins }}"
+
   # This is the one that works
-  #- name: ensure vim_plugins
-  #git: 
+  # name: ensure vim_plugins
+  # git:
   #  repo: "{{ item.value.repo }}"
   #  dest: "~kenny/.vim_ansible/bundle/{{ item.key }}/"
   #  version: "{{ item.value.revision }}"
-  ##loop: "{{ users|default([]) }}"
-  ##when: item != None 
-  #with_dict: "{{ vim_plugins }}"
-    
-  #- name: Print the dict
-  #debug:
+  ## loop: "{{ users|default([]) }}"
+  ## when: item != None
+  # with_dict: "{{ vim_plugins }}"
+
+  # - name: Print the dict
+  # debug:
   #  msg: "print_item {{ item }},print_item.key {{ print_item.key }}, print_item.value.repos {{ print_item.value.repo }}, print_item.value.revision ({{ print_item.value.revision }})"
-  #with_nested:
+  # with_nested:
   #  - "{{ users|default([]) }}"
-  #loop_control:
+  # loop_control:
   #  loop_var: print_item
-  #with_dict: "{{ vim_plugins }}"
+  # with_dict: "{{ vim_plugins }}"
   #    #loop_control:
   #    #loop_var: users_item
-  
-  
-    #- name: "users2 items  oooooooooooo"
-    #debug:
-    #  msg: "the user is {{ user2_item }}"
-    #loop: "{{ users2 |default([]) }}"
-    #loop_control:
-    #  loop_var: user2_item
-    #when: user2_item != None
 
-  #- 
-  #loop: "{{ users|default([]) }}"
-  
-  ##- shell: echo "nested test a={{ item[0] }} b={{ item[1] }} c={{ item[2] }}"
+  # - name: "users2 items  oooooooooooo"
+  # debug:
+  #  msg: "the user is {{ user2_item }}"
+  # loop: "{{ users2 |default([]) }}"
+  # loop_control:
+  #  loop_var: user2_item
+  # when: user2_item != None
+
+  # -
+  # loop: "{{ users|default([]) }}"
+
+  ## - shell: echo "nested test a={{ item[0] }} b={{ item[1] }} c={{ item[2] }}"
   ##
 
-    #- name: running shell on nested loop
-    #  shell: echo "nested test a={{ item[0] }} b={{ item[1] }}"
-    #  with_nested:
-    #    - "{{ users2|default([]) }}"
-    #  #  - "{{ item.key }} is {{ item.value.repo }} ({{ item.value.revision }})"
-    #      #with_dict: "{{ vim_plugins }}"
-    #      #with_dict: "{{ vim_plugins }}"
-    #  
-    #      #- name: show dictionary
-    #      #debug: msg="{{item.key}}: {{item.value}}"
-    #      #with_dict: {a: 1, b: 2, c: 3}
-   
-    #      #- name: print repos and revisions
- 
-    #- name: Print the dict
-    #  debug:
-    #    #msg: "item.key {{ item.key }}, item.value.repo {{ item.value.repo }}, item.value.revision ({{ item.value.revision }})"
-    #    #msg: "item.key {{ item.key }}"
-    #    msg: "item.value.repo {{ item.value.repo }}"
-    #  with_dict: "{{ vim_plugins }}"
+  # - name: running shell on nested loop
+  #  shell: echo "nested test a={{ item[0] }} b={{ item[1] }}"
+  #  with_nested:
+  #    - "{{ users2|default([]) }}"
+  #  #  - "{{ item.key }} is {{ item.value.repo }} ({{ item.value.revision }})"
+  #      #with_dict: "{{ vim_plugins }}"
+  #      #with_dict: "{{ vim_plugins }}"
+  #
+  #      #- name: show dictionary
+  #      #debug: msg="{{item.key}}: {{item.value}}"
+  #      #with_dict: {a: 1, b: 2, c: 3}
+
+  #      #- name: print repos and revisions
+
+  # - name: Print the dict
+  #  debug:
+  #    #msg: "item.key {{ item.key }}, item.value.repo {{ item.value.repo }}, item.value.revision ({{ item.value.revision }})"
+  #    #msg: "item.key {{ item.key }}"
+  #    msg: "item.value.repo {{ item.value.repo }}"
+  #  with_dict: "{{ vim_plugins }}"
