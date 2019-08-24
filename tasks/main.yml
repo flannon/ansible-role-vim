@@ -31,15 +31,18 @@
     state: "{{ role_state['file'] }}"
   loop: "{{ users|default([]) }}"
   when: item != None
+  become: false
 
 - name: ensure .vim
   file:
     path: ~{{ item }}/{{ vim_plugin_dir }}
     state: "{{ role_state['directory'] }}"
     owner: "{{ item }}"
+    group: "{{ item }}"
     mode: 0755
   loop: "{{ users|default([]) }}"
   when: item != None
+  become: false
 
 ##
 # Vim plugins
@@ -52,6 +55,7 @@
     version: "{{ vim_plugin_vundle_revision }}"
   loop: "{{ users|default([]) }}"
   when: item != None
+  become: false
 
 - name: ensure vim plugin L9
   git:
@@ -60,14 +64,16 @@
     version: "{{ vim_plugin_L9_revision }}"
   loop: "{{ users|default([]) }}"
   when: item != None
+  become: false
 
-- name: ensure vim plugin YCM
-  git:
-    repo: "{{ vim_plugin_ycm }}"
-    dest: ~{{ item }}/{{ vim_plugin_ycm_dir }}/
-    version: "{{ vim_plugin_ycm_revision }}"
-  loop: "{{ users|default([]) }}"
-  when: item != None
+#- name: ensure vim plugin YCM
+  #git:
+  #  repo: "{{ vim_plugin_ycm }}"
+  #  dest: ~{{ item }}/{{ vim_plugin_ycm_dir }}/
+  #  version: "{{ vim_plugin_ycm_revision }}"
+  #loop: "{{ users|default([]) }}"
+  #when: item != None
+  #become: false
 
 - name: ensure vim plugin indentLine
   git:
@@ -76,6 +82,7 @@
     version: "{{ vim_plugin_indentLine_revision }}"
   loop: "{{ users|default([]) }}"
   when: item != None
+  become: false
 
 - name: ensure vim plugin jedi-vim
   git:
@@ -84,6 +91,7 @@
     version: "{{ vim_plugin_jedi_revision }}"
   loop: "{{ users|default([]) }}"
   when: item != None
+  become: false
 
 - name: ensure vim plugin ansible-vim
   git:
@@ -92,6 +100,7 @@
     version: "{{ vim_plugin_ansible_revision }}"
   loop: "{{ users|default([]) }}"
   when: item != None
+  become: false
 
 - name: ensure vim plugin vim-colorschemes
   git:
@@ -101,6 +110,7 @@
     update: false
   loop: "{{ users|default([]) }}"
   when: item != None
+  become: false
 
 - name: ensure vim plugin vim-fugitive
   git:
@@ -109,6 +119,7 @@
     version: "{{ vim_plugin_fugitive_revision }}"
   loop: "{{ users|default([]) }}"
   when: item != None
+  become: false
 
 - name: ensure vim plugin vim-go
   git:
@@ -117,7 +128,8 @@
     version: "{{ vim_plugin_go_revision }}"
   loop: "{{ users|default([]) }}"
   when: item != None
-##
+  become: false
+
 - name: ensure vim plugin vim-packer
   git:
     repo: "{{ vim_plugin_packer }}"
@@ -125,6 +137,7 @@
     version: "{{ vim_plugin_packer_revision }}"
   loop: "{{ users|default([]) }}"
   when: item != None
+  become: false
 
 - name: ensure vim plugin vim-puppet
   git:
@@ -133,6 +146,7 @@
     version: "{{ vim_plugin_puppet_revision }}"
   loop: "{{ users|default([]) }}"
   when: item != None
+  become: false
 
 - name: ensure vim plugin vim-surround
   git:
@@ -141,6 +155,7 @@
     version: "{{ vim_plugin_surround_revision }}"
   loop: "{{ users|default([]) }}"
   when: item != None
+  become: false
 
 - name: ensure vim plugin vim-surround
   git:
@@ -149,6 +164,7 @@
     version: "{{ vim_plugin_surround_revision }}"
   loop: "{{ users|default([]) }}"
   when: item != None
+  become: false
 
 - name: ensure vim plugin vim-terraform
   git:
@@ -157,6 +173,7 @@
     version: "{{ vim_plugin_terraform_revision }}"
   loop: "{{ users|default([]) }}"
   when: item != None
+  become: false
 
 - name: ensure vim plugin vim-vagrant
   git:
@@ -165,6 +182,7 @@
     version: "{{ vim_plugin_vagrant_revision }}"
   loop: "{{ users|default([]) }}"
   when: item != None
+  become: false
 
   #  #- name: ensure vim_plugins
   ## git:
@@ -176,14 +194,15 @@
   ## with_dict: "{{ vim_plugins }}"
 
   # This is the one that works
-  # name: ensure vim_plugins
-  # git:
+  #- name: ensure vim_plugins
+  #git:
   #  repo: "{{ item.value.repo }}"
   #  dest: "~kenny/.vim_ansible/bundle/{{ item.key }}/"
   #  version: "{{ item.value.revision }}"
-  ## loop: "{{ users|default([]) }}"
-  ## when: item != None
+  # loop: "{{ users|default([]) }}"
+  # when: item != None
   # with_dict: "{{ vim_plugins }}"
+  #become: false
 
   # - name: Print the dict
   # debug:
